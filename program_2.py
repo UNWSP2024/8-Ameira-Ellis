@@ -8,12 +8,19 @@
 # Start your changes on line 13
 
 def word_separator(sentence):
+    words = []
+    current_word = sentence[0]
 
-    new_sentence = ""
-    #    Add your logic here
-
-    return new_sentence.strip()
-
+    for char in sentence[1:]:
+        if char.isupper():
+            words.append(current_word)
+            current_word = char
+        else:
+            current_word += char
+    words.append(current_word)
+    
+    words[0] = words[0].capitalize()
+    return ' '.join(words) + '.'
 # Example usage
 
 sentence = "StopAndSmellTheRoses"
